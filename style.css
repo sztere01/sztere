@@ -1,0 +1,1183 @@
+/* ==================================== */
+/* CUSTOM PROPERTIES (CSS VÁLTOZÓK)   */
+/* ==================================== */
+:root {
+    /* Színek */
+    --dark-bg: #0A0A1F;
+    --light-text: #E0E0E0;
+    --secondary-text: #BBBBBB;
+    --heading-aqua: #A0FFFF;
+    --heading-plum: #DDA0DD;
+    --gold: #FFD700;
+    --orange-red: #FF4500;
+    --blue-violet: #8A2BE2;
+    --deep-sky-blue: #00BFFF;
+    --discord-blue: #7289DA;
+    --lime-green: #32CD32;
+    --google-red: #DB4437;
+    --darker-google-red: #C0392B;
+    --twitch-purple: #9146FF;
+    --youtube-red: #FF0000;
+
+    /* Betűtípusok */
+    --font-montserrat: 'Montserrat', sans-serif;
+    --font-orbitron: 'Orbitron', monospace;
+
+    /* Térközök */
+    --spacing-xs: 5px;
+    --spacing-s: 10px;
+    --spacing-m: 20px;
+    --spacing-l: 40px;
+    --spacing-xl: 60px;
+
+    /* Lekerekítés (border-radius) */
+    --border-radius-small: 5px;
+    --border-radius-medium: 10px;
+    --border-radius-large: 15px;
+
+    /* Árnyékok */
+    --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.2);
+    --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.3);
+    --shadow-dark: 0 12px 24px rgba(0, 0, 0, 0.4);
+
+    /* Áttűnések */
+    --transition-speed: 0.3s ease;
+}
+
+/* General Styles */
+body {
+    font-family: var(--font-montserrat);
+    margin: 0;
+    padding: 0;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Background Blob Animation */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50vh;
+    left: -50vw;
+    width: 200vw;
+    height: 200vh;
+    background: radial-gradient(circle at 25% 25%, rgba(102, 0, 204, 0.15), transparent 45%), /* Deep purple glow */
+                radial-gradient(circle at 75% 75%, rgba(0, 150, 255, 0.12), transparent 45%), /* Electric blue glow */
+                radial-gradient(circle at 50% 10%, rgba(255, 200, 0, 0.08), transparent 45%); /* Subtle gold glow */
+    background-size: 100% 100%, 100% 100%, 100% 100%;
+    animation: moveBlobs 20s infinite alternate;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes moveBlobs {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(5%, 5%); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-l) var(--spacing-m);
+    box-sizing: border-box;
+}
+
+/* Header */
+header {
+    background: rgba(0, 0, 0, 0.7);
+    padding: var(--spacing-m) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-medium);
+}
+
+header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.logo-text {
+    font-family: var(--font-orbitron);
+    font-size: 3.5em;
+    color: var(--heading-aqua);
+    margin: 0 0 var(--spacing-s) 0;
+    text-shadow: 0 0 10px rgba(160, 255, 255, 0.5);
+    letter-spacing: 2px;
+}
+
+.logo-text span {
+    color: var(--heading-plum);
+    font-size: 0.8em;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+
+.tagline {
+    font-size: 1.1em;
+    color: var(--secondary-text);
+    margin-bottom: var(--spacing-m);
+    max-width: 800px;
+}
+
+/* Navigation */
+.tab-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-s);
+}
+
+.tab-nav li {
+    margin: 0;
+}
+
+.tab-nav a {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: 10px 15px;
+    background-color: rgba(30, 30, 50, 0.7);
+    color: var(--light-text);
+    text-decoration: none;
+    border-radius: var(--border-radius-small);
+    transition: background-color var(--transition-speed), color var(--transition-speed), transform var(--transition-speed);
+    font-weight: 600;
+    white-space: nowrap;
+    position: relative; /* Az animált aláhúzáshoz */
+    overflow: hidden; /* Animáció vágásához */
+}
+
+.tab-nav a:hover,
+.tab-nav a.active {
+    background-color: var(--blue-violet);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-light);
+}
+
+/* Animated underline for active/hover state */
+.tab-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--gold); /* Arany színű aláhúzás */
+    transform: translateX(-100%);
+    transition: transform var(--transition-speed) ease-out;
+}
+
+.tab-nav a:hover::after,
+.tab-nav a.active::after {
+    transform: translateX(0%);
+}
+
+
+.tab-nav a i {
+    font-size: 1.1em;
+}
+
+/* Main Content Sections */
+main {
+    flex-grow: 1;
+}
+
+/* Általános animáció minden fülhöz */
+.tab-content {
+    display: none;
+    padding: var(--spacing-xl) 0;
+    /* Alapértelmezett megjelenési animáció */
+    animation: fadeInScale 0.8s ease-out forwards;
+    transform: translateY(20px) scale(0.98);
+    opacity: 0;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: translateY(20px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.section-title {
+    font-family: var(--font-orbitron);
+    font-size: 2.8em;
+    color: var(--heading-aqua);
+    text-align: center;
+    margin-bottom: var(--spacing-s);
+    text-shadow: 0 0 8px rgba(160, 255, 255, 0.3);
+}
+
+.section-subtitle {
+    font-size: 1.2em;
+    color: var(--secondary-text);
+    text-align: center;
+    margin-bottom: var(--spacing-l);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: 12px 25px;
+    background-color: var(--blue-violet);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--border-radius-medium);
+    transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn:hover {
+    background-color: #7B24C5;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+.btn-small {
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+
+.btn-play-now {
+    background-color: var(--lime-green);
+    font-size: 1.3em;
+    padding: 15px 30px;
+    margin-top: var(--spacing-m);
+    box-shadow: 0 0 15px rgba(50, 205, 50, 0.4);
+}
+
+.btn-play-now:hover {
+    background-color: #28A745;
+    box-shadow: 0 0 20px rgba(50, 205, 50, 0.6);
+    transform: scale(1.03);
+}
+
+.btn-discord-large {
+    background-color: var(--discord-blue);
+    font-size: 1.2em;
+    padding: 15px 30px;
+    box-shadow: 0 0 15px rgba(114, 137, 218, 0.4);
+}
+
+.btn-discord-large:hover {
+    background-color: #677BC4;
+    box-shadow: 0 0 20px rgba(114, 137, 218, 0.6);
+}
+
+.btn-discord {
+    background-color: var(--discord-blue);
+}
+.btn-discord:hover {
+    background-color: #677BC4;
+}
+.btn-discord-secondary {
+    background-color: #5865F2;
+}
+.btn-discord-secondary:hover {
+    background-color: #4C59D9;
+}
+
+.btn-youtube {
+    background-color: var(--youtube-red);
+}
+.btn-youtube:hover {
+    background-color: #CC0000;
+}
+
+.btn-twitch {
+    background-color: var(--twitch-purple);
+}
+.btn-twitch:hover {
+    background-color: #7B35D9;
+}
+
+.btn-email {
+    background-color: #FF5722;
+}
+.btn-email:hover {
+    background-color: #E64A19;
+}
+
+/* Általános kártya stílus animált kerettel (mindenhol használva, ahol eddig a feature-card animált keret volt) */
+.animated-card {
+    background: linear-gradient(135deg, rgba(25, 25, 50, 0.8), rgba(35, 35, 70, 0.8)); /* Alap háttér */
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-medium);
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.animated-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-dark);
+}
+
+.animated-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--border-radius-large);
+    padding: 2px;
+    background: linear-gradient(45deg, var(--deep-sky-blue), var(--blue-violet), var(--heading-plum));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+    animation: rotateBorder 5s linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes rotateBorder {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* Home Section Specific Styles */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 50vh;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: var(--spacing-xl);
+    background: linear-gradient(rgba(10, 10, 31, 0.8), rgba(10, 10, 31, 0.8)), url('https://placehold.co/1200x600/000/FFF?text=HÁTTÉRKÉP+IDE') no-repeat center center / cover;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-dark);
+}
+
+.hero-content {
+    z-index: 1;
+    max-width: 800px;
+}
+
+.hero-title {
+    font-family: var(--font-orbitron);
+    font-size: 3.5em;
+    color: var(--heading-aqua);
+    margin-bottom: var(--spacing-s);
+    text-shadow: 0 0 15px rgba(160, 255, 255, 0.7);
+    animation: scaleIn 1s ease-out;
+}
+
+.hero-subtitle {
+    font-size: 1.5em;
+    color: var(--secondary-text);
+    margin-bottom: var(--spacing-l);
+    animation: fadeIn 1.2s ease-out;
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Server Status Box - Home Section */
+.server-status-box { /* Ezt most már az animated-card osztály is befolyásolja */
+    padding: var(--spacing-m);
+    text-align: center;
+    margin-top: var(--spacing-m);
+    position: relative;
+    overflow: hidden;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    /* Specifikus glow, ami felülírja az animated-card alap háttér glow-t */
+    background: linear-gradient(145deg, rgba(20, 20, 40, 0.9), rgba(30, 30, 60, 0.9));
+    border: 1px solid rgba(var(--deep-sky-blue), 0.3);
+    box-shadow: 0 0 25px rgba(0, 191, 255, 0.3);
+}
+
+.server-status-box::before { /* Egyedi glow animáció a státusz boxhoz */
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(0, 191, 255, 0.1), transparent 70%);
+    animation: rotateGlow 10s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes rotateGlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.status-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-s);
+    margin-bottom: var(--spacing-s);
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+.status-indicator {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: gray;
+    animation: pulse 1.5s infinite;
+}
+
+.status-indicator.online {
+    background-color: var(--lime-green);
+    box-shadow: 0 0 8px var(--lime-green);
+}
+.status-indicator.offline {
+    background-color: var(--orange-red);
+    box-shadow: 0 0 8px var(--orange-red);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.ip-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: var(--border-radius-small);
+    padding: var(--spacing-s);
+    margin-bottom: var(--spacing-m);
+}
+
+.ip-address {
+    font-family: var(--font-orbitron);
+    font-size: 1.8em;
+    color: var(--gold);
+    margin-right: var(--spacing-s);
+    user-select: all;
+}
+
+.copy-btn {
+    background-color: var(--deep-sky-blue);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.copy-btn:hover {
+    background-color: #008CBA;
+}
+
+/* Home Page Feature Cards */
+.home-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-l);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.feature-card { /* Már az .animated-card osztály kezeli a legtöbb stílusát */
+    padding: var(--spacing-m);
+    text-align: center;
+}
+
+.feature-card .feature-icon {
+    font-size: 3em;
+    color: var(--heading-plum);
+    margin-bottom: var(--spacing-s);
+    text-shadow: 0 0 10px rgba(221, 160, 221, 0.5);
+}
+
+.feature-card h3 {
+    font-family: var(--font-orbitron);
+    color: var(--light-text);
+    font-size: 1.8em;
+    margin-bottom: var(--spacing-s);
+}
+
+.feature-card p {
+    color: var(--secondary-text);
+    font-size: 1.1em;
+}
+
+/* Home Promo Grid (Discord & YouTube/Twitch) */
+.home-promo-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-l);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+    .home-promo-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.promo-box { /* Már az .animated-card osztály kezeli a legtöbb stílusát */
+    padding: var(--spacing-l);
+    text-align: center;
+}
+
+.promo-box h3 {
+    font-family: var(--font-orbitron);
+    font-size: 2em;
+    margin-bottom: var(--spacing-s);
+}
+
+.promo-box p {
+    color: var(--secondary-text);
+    margin-bottom: var(--spacing-m);
+}
+
+.discord-promo-home h3 {
+    color: var(--discord-blue);
+    text-shadow: 0 0 10px rgba(114, 137, 218, 0.5);
+}
+
+.youtube-twitch-promo h3 {
+    color: var(--youtube-red);
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.promo-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-m);
+    flex-wrap: wrap;
+}
+
+/* Game Modes Grid */
+.game-modes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-l);
+}
+
+.game-mode-card { /* Már az .animated-card osztály kezeli a legtöbb stílusát */
+    padding: var(--spacing-m);
+    text-align: center;
+}
+
+.game-mode-img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: var(--border-radius-medium);
+    margin-bottom: var(--spacing-s);
+    border: 2px solid var(--blue-violet);
+}
+
+.game-mode-card h4 {
+    font-family: var(--font-orbitron);
+    color: var(--light-text);
+    font-size: 1.8em;
+    margin-bottom: var(--spacing-s);
+}
+
+.game-mode-card p {
+    color: var(--secondary-text);
+    font-size: 1.1em;
+    margin-bottom: var(--spacing-s);
+}
+
+.game-mode-card ul {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-s) 0 var(--spacing-m) 0;
+    text-align: left;
+    color: var(--light-text);
+}
+
+.game-mode-card ul li {
+    margin-bottom: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.game-mode-card ul li i {
+    color: var(--lime-green);
+    font-size: 1.1em;
+}
+
+/* Store Grid */
+.store-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-l);
+}
+
+.store-item-card { /* Már az .animated-card osztály kezeli a legtöbb stílusát */
+    padding: var(--spacing-m);
+    text-align: center;
+}
+
+.store-item-img {
+    max-width: 100%;
+    height: 120px;
+    object-fit: contain;
+    border-radius: var(--border-radius-medium);
+    margin-bottom: var(--spacing-s);
+    border: 2px solid var(--gold);
+}
+
+.store-item-card h4 {
+    font-family: var(--font-orbitron);
+    color: var(--light-text);
+    font-size: 1.6em;
+    margin-bottom: var(--spacing-s);
+}
+
+.store-item-card p {
+    color: var(--secondary-text);
+    font-size: 1.0em;
+    margin-bottom: var(--spacing-m);
+}
+
+.store-item-card .price {
+    font-family: var(--font-orbitron);
+    font-size: 1.8em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: var(--spacing-m);
+}
+
+/* Vote Sites Grid */
+.vote-sites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-l);
+}
+
+.vote-site-card { /* Már az .animated-card osztály kezeli a legtöbb stílusát */
+    padding: var(--spacing-m);
+    text-align: center;
+}
+
+.vote-site-logo {
+    max-width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: var(--border-radius-medium);
+    margin-bottom: var(--spacing-s);
+    border: 2px solid var(--lime-green);
+}
+
+.vote-site-card h4 {
+    font-family: var(--font-orbitron);
+    color: var(--light-text);
+    font-size: 1.6em;
+    margin-bottom: var(--spacing-s);
+}
+
+.vote-site-card p {
+    color: var(--secondary-text);
+    font-size: 1.0em;
+    margin-bottom: var(--spacing-m);
+}
+
+/* Leaderboard */
+.leaderboard-grid { /* Már az .animated-card osztály kezeli a legtöbb stílusát */
+    padding: var(--spacing-m);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.leaderboard-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-s) var(--spacing-m);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.leaderboard-item:last-child {
+    border-bottom: none;
+}
+
+.leaderboard-item .rank {
+    font-family: var(--font-orbitron);
+    font-size: 1.5em;
+    color: var(--gold);
+    width: 60px;
+    text-align: left;
+}
+
+.leaderboard-item .player-name {
+    font-weight: 600;
+    flex-grow: 1;
+    text-align: left;
+    font-size: 1.1em;
+}
+
+.leaderboard-item .score {
+    font-family: var(--font-orbitron);
+    color: var(--heading-aqua);
+    font-size: 1.2em;
+}
+
+/* Gallery */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-m);
+}
+
+.gallery-img { /* Már az .animated-card osztály kezeli a legtöbb stílusát */
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: var(--border-radius-medium);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Community (Discord) */
+.discord-servers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-l);
+}
+
+.discord-server-card { /* Már az .animated-card osztály kezeli a legtöbb stílusát */
+    padding: var(--spacing-m);
+    text-align: center;
+}
+
+.discord-logo {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    border-radius: 50%;
+    margin-bottom: var(--spacing-s);
+    border: 3px solid var(--discord-blue);
+}
+
+.discord-server-card h4 {
+    font-family: var(--font-orbitron);
+    color: var(--light-text);
+    font-size: 1.6em;
+    margin-bottom: var(--spacing-s);
+}
+
+.discord-server-card p {
+    color: var(--secondary-text);
+    font-size: 1.0em;
+    margin-bottom: var(--spacing-m);
+}
+
+/* Support Section */
+.support-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-l);
+}
+
+.support-option-card { /* Már az .animated-card osztály kezeli a legtöbb stílusát */
+    padding: var(--spacing-m);
+    text-align: center;
+}
+
+.support-option-card h4 {
+    font-family: var(--font-orbitron);
+    color: var(--light-text);
+    font-size: 1.6em;
+    margin-bottom: var(--spacing-s);
+}
+
+.support-option-card p {
+    color: var(--secondary-text);
+    font-size: 1.0em;
+    margin-bottom: var(--spacing-m);
+}
+
+/* Contact Section */
+.contact-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-l);
+}
+
+.contact-card { /* Már az .animated-card osztály kezeli a legtöbb stílusát */
+    padding: var(--spacing-m);
+    text-align: center;
+}
+
+.contact-card h3 {
+    font-family: var(--font-orbitron);
+    color: var(--light-text);
+    font-size: 1.8em;
+    margin-bottom: var(--spacing-s);
+}
+
+.contact-card p {
+    color: var(--secondary-text);
+    font-size: 1.0em;
+    margin-bottom: var(--spacing-m);
+}
+
+.contact-card .small-text {
+    font-size: 0.9em;
+    color: #999;
+    margin-top: var(--spacing-s);
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--secondary-text);
+    text-align: center;
+    padding: var(--spacing-m) 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: var(--spacing-xl);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) inset;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.social-links {
+    display: flex;
+    gap: var(--spacing-m);
+}
+
+.social-icon {
+    color: var(--light-text);
+    font-size: 1.8em;
+    transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.social-icon:hover {
+    color: var(--heading-aqua);
+    transform: translateY(-3px) scale(1.1);
+}
+
+.social-icon .fa-youtube:hover { color: var(--youtube-red); }
+.social-icon .fa-discord:hover { color: var(--discord-blue); }
+.social-icon .fa-tiktok:hover { color: #69C9D0; }
+
+
+/* Modal (Login/Register) - Megtartva a funkcionalitáshoz */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    animation: fadeInModal 0.3s forwards;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: linear-gradient(145deg, rgba(15, 15, 30, 0.95), rgba(25, 25, 50, 0.95));
+    padding: var(--spacing-l);
+    border-radius: var(--border-radius-large);
+    position: relative;
+    box-shadow: var(--shadow-dark);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    animation: slideInModal 0.4s ease-out forwards;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInModal {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-button {
+    position: absolute;
+    top: var(--spacing-s);
+    right: var(--spacing-m);
+    color: var(--secondary-text);
+    font-size: 2.5em;
+    cursor: pointer;
+    transition: color var(--transition-speed);
+}
+
+.close-button:hover {
+    color: var(--orange-red);
+}
+
+.modal-content h2 {
+    font-family: var(--font-orbitron);
+    color: var(--heading-aqua);
+    font-size: 2.5em;
+    margin-bottom: var(--spacing-s);
+    text-shadow: 0 0 10px rgba(160, 255, 255, 0.5);
+}
+
+.modal-subtitle {
+    color: var(--secondary-text);
+    margin-bottom: var(--spacing-m);
+    font-size: 1.1em;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-m);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    padding: var(--spacing-s) var(--spacing-m);
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--secondary-text);
+    cursor: pointer;
+    transition: color var(--transition-speed), border-bottom var(--transition-speed);
+    outline: none;
+}
+
+.tab-button.active {
+    color: var(--blue-violet);
+    border-bottom: 3px solid var(--blue-violet);
+}
+
+.tab-button:hover:not(.active) {
+    color: var(--light-text);
+}
+
+.input-group {
+    margin-bottom: var(--spacing-m);
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    color: var(--light-text);
+    font-weight: 600;
+}
+
+.input-group input {
+    width: calc(100% - 20px);
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-small);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: var(--light-text);
+    font-size: 1em;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--blue-violet);
+    box-shadow: 0 0 8px rgba(138, 43, 226, 0.5);
+}
+
+.modal-links {
+    margin-top: var(--spacing-s);
+    text-align: center;
+}
+
+.modal-links a {
+    color: var(--blue-violet);
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: color var(--transition-speed);
+}
+
+.modal-links a:hover {
+    color: var(--heading-aqua);
+    text-decoration: underline;
+}
+
+.login-submit-btn, .register-submit-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+    margin-top: var(--spacing-m);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.social-login-placeholder {
+    margin-top: var(--spacing-l);
+    padding-top: var(--spacing-m);
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.social-login-placeholder p {
+    color: var(--secondary-text);
+    margin-bottom: var(--spacing-m);
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-s);
+    width: calc(50% - var(--spacing-s));
+    padding: 10px 15px;
+    border: none;
+    border-radius: var(--border-radius-medium);
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    margin-bottom: var(--spacing-s);
+}
+
+.social-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+.google-btn {
+    background-color: var(--google-red);
+    color: white;
+}
+
+.google-btn:hover {
+    background-color: var(--darker-google-red);
+}
+
+.discord-btn {
+    background-color: var(--discord-blue);
+    color: white;
+}
+
+.discord-btn:hover {
+    background-color: #677BC4;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .logo-text { font-size: 3em; }
+    .tagline { font-size: 1em; }
+    .tab-nav a { padding: 8px 12px; font-size: 0.9em; }
+    .section-title { font-size: 2.2em; }
+    .section-subtitle { font-size: 1em; }
+    .server-status-box { padding: var(--spacing-m); }
+    .ip-address { font-size: 1.6em; }
+    .btn-play-now { font-size: 1.1em; padding: 12px 25px; }
+
+    .game-mode-card h4, .store-item-card h4, .vote-site-card h4, .discord-server-card h4, .support-option-card h4, .contact-card h3 {
+        font-size: 1.5em;
+    }
+    .hero-title { font-size: 2.8em; }
+    .hero-subtitle { font-size: 1.2em; }
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .tab-nav ul {
+        flex-direction: column;
+        gap: var(--spacing-s);
+    }
+    .tab-nav a {
+        width: 100%;
+        justify-content: center;
+    }
+    .logo-text { font-size: 2.8em; }
+    .tagline { font-size: 0.9em; }
+
+    .server-status-box, .ip-info { max-width: 90%; }
+    .ip-address { font-size: 1.5em; flex-direction: column; gap: 5px; }
+    .copy-btn { margin-left: 0; margin-top: 10px; }
+    
+    .game-modes-grid, .store-grid, .vote-sites-grid, .leaderboard-grid, .gallery-container, .support-grid, .contact-options-grid {
+        grid-template-columns: 1fr;
+    }
+    .home-features-grid, .home-promo-grid, .discord-servers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .game-mode-card h4 { font-size: 1.6em; }
+
+    .modal-content { padding: 30px; }
+    .modal-content h2 { font-size: 2em; }
+    .close-button { font-size: 2em; }
+    .social-login-placeholder .social-btn { width: 100%; margin: 5px 0; }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2.2em; }
+    h2 { font-size: 1.5em; }
+    h3 { font-size: 1.4em; }
+    .tagline { font-size: 0.9em; }
+    .btn { padding: 10px 20px; font-size: 0.9em; }
+    .hero-title { font-size: 2em; }
+    .hero-subtitle { font-size: 1em; }
+    .server-status-box { padding: var(--spacing-s); }
+    .ip-address { font-size: 1.3em; }
+    .copy-btn { font-size: 0.8em; padding: 6px 10px; }
+    .btn-play-now { font-size: 1em; padding: 10px 20px; }
+
+    .feature-card h3 { font-size: 1.5em; }
+    .promo-box h3 { font-size: 1.6em; }
+    .promo-buttons .btn { width: 100%; }
+
+    footer .container {
+        flex-direction: column;
+        gap: var(--spacing-m);
+    }
+    .social-links { margin-top: var(--spacing-s); }
+}

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow&Phantom Network</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo-text">SHADOW<span>&</span>PHANTOM</h1>
+            <p class="tagline">Ahol a legendák születnek. Csatlakozz ma a következő generációs Minecraft kalandhoz!</p>
+
+            <nav class="tab-nav">
+                <ul>
+                    <li><a href="#home" class="tab-link active"><i class="fa-solid fa-house"></i> FŐOLDAL</a></li>
+                    <li><a href="#servers" class="tab-link"><i class="fa-solid fa-server"></i> JÁTÉKMÓDOK</a></li>
+                    <li><a href="#store" class="tab-link"><i class="fa-solid fa-shop"></i> BOLT</a></li>
+                    <li><a href="#vote" class="tab-link"><i class="fa-solid fa-star"></i> SZAVAZÁS</a></li>
+                    <li><a href="#leaderboard" class="tab-link"><i class="fa-solid fa-trophy"></i> LEADERBOARD</a></li>
+                    <li><a href="#gallery" class="tab-link"><i class="fa-solid fa-images"></i> GALÉRIA</a></li>
+                    <li><a href="#community" class="tab-link"><i class="fa-brands fa-discord"></i> KÖZÖSSÉG</a></li>
+                    <li><a href="#support" class="tab-link"><i class="fa-solid fa-hand-holding-heart"></i> TÁMOGATÁS</a></li>
+                    <li><a href="#contact" class="tab-link"><i class="fa-solid fa-envelope"></i> KAPCSOLAT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="tab-content active">
+            <div class="container hero-section">
+                <div class="hero-content">
+                    <h2 class="hero-title">Készen állsz a kalandra?</h2>
+                    <p class="hero-subtitle">Vágj bele a Shadow&Phantom Network epikus Minecraft világába!</p>
+
+                    <div class="server-status-box animated-card">
+                        <div class="status-header">
+                            <div class="status-indicator online"></div>
+                            <span id="server-status-text">SERVER STATUS: BETÖLTÉS...</span>
+                            <span id="player-count" style="display:none;"></span> 
+                        </div>
+                        <div class="ip-info">
+                            <span class="ip-address" id="server-ip">shadowrealms.sytes.net</span>
+                            <button class="copy-btn" id="copy-ip-btn"><i class="fa-solid fa-copy"></i> Másolás</button>
+                        </div>
+                        <a href="minecraft://shadowrealms.sytes.net" class="btn btn-play-now"><i class="fa-solid fa-play"></i> Játssz a Szerveren!</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container home-features-grid">
+                <div class="feature-card animated-card">
+                    <i class="fa-solid fa-cogs feature-icon"></i>
+                    <h3>Innovatív Játékmódok</h3>
+                    <p>Fedezd fel egyedi, fejlesztett játékmódjainkat, mint a BoxPvP, Economy és OneBlock.</p>
+                </div>
+                <div class="feature-card animated-card">
+                    <i class="fa-solid fa-users feature-icon"></i>
+                    <h3>Aktív Közösség</h3>
+                    <p>Csatlakozz Discord szervereinkhez és légy része egy barátságos, segítőkész csapatnak.</p>
+                </div>
+                <div class="feature-card animated-card">
+                    <i class="fa-solid fa-shield-alt feature-icon"></i>
+                    <h3>Stabil Szerverek</h3>
+                    <p>Erőteljes hardver és profi védelem a zökkenőmentes játékélményért.</p>
+                </div>
+            </div>
+
+            <div class="container home-promo-grid">
+                <div class="discord-promo-home promo-box animated-card">
+                    <h3 class="discord-promo-title"><i class="fa-brands fa-discord"></i> Csatlakozz Discordunkhoz!</h3>
+                    <p>Légy része aktív közösségünknek, beszélgess a játékosokkal és értesülj a frissítésekről!</p>
+                    <a href="https://discord.gg/Y7upJ9Zm7N" target="_blank" class="btn btn-discord-large"><i class="fa-brands fa-discord"></i> Csatlakozás</a>
+                </div>
+                <div class="youtube-twitch-promo promo-box animated-card">
+                    <h3 class="youtube-twitch-promo-title"><i class="fa-brands fa-youtube"></i> Nézd meg a tartalmainkat! <i class="fa-brands fa-twitch"></i></h3>
+                    <p>Ne maradj le a legújabb videókról, streamekről és közösségi eseményekről!</p>
+                    <div class="promo-buttons">
+                        <a href="https://www.youtube.com/@sztere" target="_blank" class="btn btn-youtube"><i class="fa-brands fa-youtube"></i> YouTube</a>
+                        <a href="https://www.twitch.tv/sztere" target="_blank" class="btn btn-twitch"><i class="fa-brands fa-twitch"></i> Twitch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servers" class="tab-content">
+            <div class="container">
+                <h2 class="section-title"><i class="fa-solid fa-server"></i> JÁTÉKMÓDOK</h2>
+                <p class="section-subtitle">Fedezd fel szerverünk egyedi világait!</p>
+                <div class="game-modes-grid">
+                    <div class="game-mode-card animated-card">
+                        <img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=BoxPvP" alt="BoxPvP" class="game-mode-img">
+                        <h4>BoxPvP</h4>
+                        <p>Küzdj meg másokkal egy zárt arénában! Fejleszd felszerelésedet és légy a ranglétra királya!</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check-circle"></i> Gyors tempójú harcok</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Gazdasági rendszer</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Rangok és jutalmak</li>
+                        </ul>
+                        <button class="btn btn-small" onclick="window.open('boxpvp.html', '_blank')">Részletek</button>
+                    </div>
+                    <div class="game-mode-card animated-card">
+                        <img src="https://placehold.co/300x200/2196F3/FFFFFF?text=Economy" alt="Economy" class="game-mode-img">
+                        <h4>Economy</h4>
+                        <p>Építs birodalmat, kereskedj másokkal és légy a szerver leggazdagabb játékosa!</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check-circle"></i> Vásárlás és eladás</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Játékos boltok</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Farmolható területek</li>
+                        </ul>
+                        <button class="btn btn-small" onclick="window.open('economy.html', '_blank')">Részletek</button>
+                    </div>
+                    <div class="game-mode-card animated-card">
+                        <img src="https://placehold.co/300x200/FF5722/FFFFFF?text=OneBlock" alt="OneBlock" class="game-mode-img">
+                        <h4>OneBlock</h4>
+                        <p>Indulj egyetlen blokkról, és fejleszd a szigetedet a végső paradicsommá!</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check-circle"></i> Szakaszos fejlődés</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Egyedi események</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Közösségi kihívások</li>
+                        </ul>
+                        <button class="btn btn-small" onclick="window.open('oneblock.html', '_blank')">Részletek</button>
+                    </div>
+                    <div class="game-mode-card animated-card">
+                        <img src="https://placehold.co/300x200/9C27B0/FFFFFF?text=BedWars" alt="BedWars" class="game-mode-img">
+                        <h4>BedWars</h4>
+                        <p>Védd meg az ágyad, és semmisítsd meg az ellenfelekét, hogy győztesen kerülj ki!</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check-circle"></i> Gyors, stratégiai PvP</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Több pálya</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Rangsorolt meccsek</li>
+                        </ul>
+                        <button class="btn btn-small" onclick="window.open('bedwars.html', '_blank')">Részletek</button>
+                    </div>
+                    <div class="game-mode-card animated-card">
+                        <img src="https://placehold.co/300x200/00BCD4/FFFFFF?text=Creative" alt="Creative" class="game-mode-img">
+                        <h4>Creative</h4>
+                        <p>Engedd szabadjára a fantáziádat, és építsd meg álmaid világát korlátok nélkül!</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check-circle"></i> Szabad építés</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Telekrendszer</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Építő versenyek</li>
+                        </ul>
+                        <button class="btn btn-small" onclick="window.open('creative.html', '_blank')">Részletek</button>
+                    </div>
+                    <div class="game-mode-card animated-card">
+                        <img src="https://placehold.co/300x200/8B0000/FFFFFF?text=Kingdoms" alt="Kingdoms" class="game-mode-img">
+                        <h4>Kingdoms</h4>
+                        <p>Építs királyságot, kovácsolj szövetségeket, és hódíts meg területeket!</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check-circle"></i> Királyság menedzsment</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Területfoglalás</li>
+                            <li><i class="fa-solid fa-check-circle"></i> Háborúk és diplomácia</li>
+                        </ul>
+                        <button class="btn btn-small" onclick="window.open('kingdoms.html', '_blank')">Részletek</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="store" class="tab-content">
+            <div class="container">
+                <h2 class="section-title"><i class="fa-solid fa-shop"></i> BOLT</h2>
+                <p class="section-subtitle">Támogasd a szervert, szerezz exkluzív extrákat!</p>
+                <div class="store-grid">
+                    <h3 class="coming-soon-text">HAMAROSAN</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="vote" class="tab-content">
+            <div class="container">
+                <h2 class="section-title"><i class="fa-solid fa-star"></i> SZAVAZÁS</h2>
+                <p class="section-subtitle">Támogass minket szavazatoddal, és szerezz jutalmakat!</p>
+                <div class="vote-sites-grid">
+                    <div class="vote-site-card animated-card">
+                        <img src="https://placehold.co/100x100/555/FFF?text=TopG" alt="TopG.org" class="vote-site-logo">
+                        <h4>TopG.org</h4>
+                        <p>Szavazz ránk a TopG.org-on minden nap!</p>
+                        <a href="https://topg.org/minecraft-servers/server-xxxx" target="_blank" class="btn btn-small"><i class="fa-solid fa-arrow-up-right-from-square"></i> Szavazás</a>
+                    </div>
+                    <div class="vote-site-card animated-card">
+                        <img src="https://placehold.co/100x100/666/FFF?text=MCSL" alt="Minecraft-Servers.com" class="vote-site-logo">
+                        <h4>Minecraft-Servers.com</h4>
+                        <p>Minden szavazat számít! Köszönjük a támogatást!</p>
+                        <a href="https://minecraft-servers.com/server-xxxx" target="_blank" class="btn btn-small"><i class="fa-solid fa-arrow-up-right-from-square"></i> Szavazás</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="leaderboard" class="tab-content">
+            <div class="container">
+                <h2 class="section-title"><i class="fa-solid fa-trophy"></i> LEADERBOARD</h2>
+                <p class="section-subtitle">Lásd a legjobb játékosokat a ranglétrán!</p>
+                <div class="leaderboard-grid animated-card">
+                    <div class="leaderboard-item">
+                        <span class="rank">#1</span>
+                        <span class="player-name">PlayerName1</span>
+                        <span class="score">1500 pont</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <span class="rank">#2</span>
+                        <span class="player-name">PlayerName2</span>
+                        <span class="score">1200 pont</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="tab-content">
+            <div class="container">
+                <h2 class="section-title"><i class="fa-solid fa-images"></i> GALÉRIA</h2>
+                <p class="section-subtitle">Képek és videók a szerverről és a közösségről!</p>
+                <div class="gallery-container">
+                    <img src="images/image_e8e345.png" alt="Galéria kép 1" class="gallery-img animated-card">
+                    <img src="images/placeholder_gallery2.png" alt="Galéria kép 2" class="gallery-img animated-card">
+                    <img src="images/placeholder_gallery3.png" alt="Galéria kép 3" class="gallery-img animated-card">
+                    <img src="images/placeholder_gallery4.png" alt="Galéria kép 4" class="gallery-img animated-card">
+                </div>
+            </div>
+        </section>
+        
+        <section id="community" class="tab-content">
+            <div class="container">
+                <h2 class="section-title"><i class="fa-brands fa-discord"></i> KÖZÖSSÉG</h2>
+                <p class="section-subtitle">Csatlakozz aktív Discord közösségeinkhez!</p>
+                <div class="discord-servers-grid">
+                    <div class="discord-server-card animated-card">
+                        <img src="https://placehold.co/100x100/7289DA/FFFFFF?text=PN" alt="PhantomNetwork Discord Logo" class="discord-logo">
+                        <h4>PhantomNetwork</h4>
+                        <p>A PhantomNetwork Minecraft szerver hivatalos Discordja, ahol játékosokkal beszélgethetsz, és frissítésekről értesülhetsz.</p>
+                        <a href="https://discord.gg/Y7upJ9Zm7N" target="_blank" class="btn btn-discord"><i class="fa-brands fa-discord"></i> Csatlakozz!</a>
+                    </div>
+                    <div class="discord-server-card animated-card">
+                        <img src="https://placehold.co/100x100/5865F2/FFFFFF?text=SR" alt="ShadowRealms Discord Logo" class="discord-logo">
+                        <h4>ShadowRealms</h4>
+                        <p>A ShadowRealms Network teljes közösségének Discordja, általános beszélgetésekhez és hírfolyamhoz.</p>
+                        <a href="https://discord.gg/x62A3ag54n" target="_blank" class="btn btn-discord-secondary"><i class="fa-brands fa-discord"></i> Csatlakozz!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="support" class="tab-content">
+            <div class="container">
+                <h2 class="section-title"><i class="fa-solid fa-hand-holding-heart"></i> TÁMOGATÁS</h2>
+                <p class="section-subtitle">Segíts nekünk a szerver fenntartásában!</p>
+                <div class="support-grid">
+                    <div class="support-option-card animated-card">
+                        <h4>Pénzügyi támogatás</h4>
+                        <p>Minden adomány segít a szerverek működtetésében és fejlesztésében.</p>
+                        <button class="btn btn-small"><i class="fa-solid fa-money-bill-wave"></i> Adományozás</button>
+                    </div>
+                    <div class="support-option-card animated-card">
+                        <h4>Patronáció</h4>
+                        <p>Legyél a Patreonunk, és élvezz exkluzív előnyöket!</p>
+                        <button class="btn btn-small"><i class="fa-brands fa-patreon"></i> Patreon</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="tab-content">
+            <div class="container">
+                <h2 class="section-title"><i class="fa-solid fa-envelope"></i> KAPCSOLAT</h2>
+                <p class="section-subtitle">Vedd fel velünk a kapcsolatot a lent látható módokon!</p>
+                <div class="contact-options-grid">
+                    <div class="contact-card animated-card">
+                        <h3><i class="fa-brands fa-discord"></i> Discord</h3>
+                        <p>A leggyorsabb módja, hogy elérj minket.</p>
+                        <a href="https://discord.gg/Y7upJ9Zm7N" target="_blank" class="btn btn-discord"><i class="fa-brands fa-discord"></i> Csatlakozz!</a>
+                        <p class="small-text">PhantomNetwork Discord</p>
+                        <a href="https://discord.gg/x62A3ag54n" target="_blank" class="btn btn-discord-secondary"><i class="fa-brands fa-discord"></i> ShadowRealms Network</a>
+                        <p class="small-text">ShadowRealms Network</p>
+                    </div>
+                    <div class="contact-card animated-card">
+                        <h3><i class="fa-solid fa-at"></i> E-mail</h3>
+                        <p>Részletesebb kérdésekkel fordulj hozzánk e-mailben.</p>
+                        <a href="mailto:supp0rt.shadowrealms@gmail.com" class="btn btn-email"><i class="fa-solid fa-paper-plane"></i> E-mail küldése</a>
+                        <p class="small-text">supp0rt.shadowrealms@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Shadow&Phantom Network. Minden jog fenntartva.</p>
+            <div class="social-links">
+                <a href="https://www.youtube.com/@sztere" target="_blank" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://discord.gg/Y7upJ9Zm7N" target="_blank" class="social-icon"><i class="fa-brands fa-discord"></i></a>
+                <a href="https://www.tiktok.com/@stero000" target="_blank" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <div class="tab-buttons">
+                <button class="tab-button active" id="show-login-tab">Bejelentkezés</button>
+                <button class="tab-button" id="show-register-tab">Regisztráció</button>
+            </div>
+
+            <form id="login-form">
+                <h2><i class="fa-solid fa-sign-in-alt"></i> BEJELENTKEZÉS</h2>
+                <p class="modal-subtitle">Lépj be fiókodba!</p>
+                <div class="input-group">
+                    <label for="username">Felhasználónév</label>
+                    <input type="text" id="username" name="username" placeholder="Felhasználónév" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Jelszó</label>
+                    <input type="password" id="password" name="password" placeholder="Jelszó" required>
+                </div>
+                <button type="button" class="btn login-submit-btn"><i class="fa-solid fa-sign-in-alt"></i> BEJELENTKEZÉS</button>
+                <div class="modal-links">
+                    <a href="#" class="forgot-password">Elfelejtetted a jelszavad?</a>
+                </div>
+                <div class="social-login-placeholder">
+                    <p>- Vagy jelentkezz be -</p>
+                    <button type="button" class="social-btn google-btn"><i class="fa-brands fa-google"></i> Google</button>
+                    <button type="button" class="social-btn discord-btn"><i class="fa-brands fa-discord"></i> Discord</button>
+                </div>
+            </form>
+
+            <form id="register-form" style="display:none;">
+                <h2><i class="fa-solid fa-user-plus"></i> REGISZTRÁCIÓ</h2>
+                <p class="modal-subtitle">Hozd létre fiókodat!</p>
+                <div class="input-group">
+                    <label for="new-username">Felhasználónév</label>
+                    <input type="text" id="new-username" name="new-username" placeholder="Válassz felhasználónevet" required>
+                </div>
+                <div class="input-group">
+                    <label for="new-password">Jelszó</label>
+                    <input type="password" id="new-password" name="new-password" placeholder="Válassz jelszót" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirm-password">Jelszó megerősítése</label>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Ismételd meg a jelszót" required>
+                </div>
+                <button type="button" class="btn register-submit-btn"><i class="fa-solid fa-user-plus"></i> REGISZTRÁLÁS</button>
+                <div class="modal-links">
+                    <a href="#" class="show-login-link-from-register">Már van fiókod? Lépj be!</a>
+                </div>
+                <div class="social-login-placeholder">
+                    <p>- Vagy regisztrálj -</p>
+                    <button type="button" class="social-btn google-btn"><i class="fa-brands fa-google"></i> Google</button>
+                    <button type="button" class="social-btn discord-btn"><i class="fa-brands fa-discord"></i> Discord</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
