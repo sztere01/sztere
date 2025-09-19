@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShadowRealms – Szabályok</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1 class="logo">ShadowRealms</h1>
+        <nav>
+            <ul>
+                <li><a href="main.html">Kezdőlap</a></li>
+                <li><a href="rules.html" class="active">Szabályok</a></li>
+                <li><a href="discord.html">Discord</a></li>
+                <li><a href="vote.html">Szavazás</a></li>
+                <li><a href="#" id="settings-btn"><i class="fas fa-cog"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="rules">
+            <h2>Szigorú Szabályzat</h2>
+            <p class="rules-intro">A szabályok nem képezik vita tárgyát. A megszegésük azonnali és végleges büntetést von maga után, mérlegelés nélkül. A Staff szava megfellebbezhetetlen.</p>
+            
+            <div class="rules-tabs">
+                <button class="tab-button active" onclick="openTab(event, 'server-rules')">Szerver Szabályzat</button>
+                <button class="tab-button" onclick="openTab(event, 'discord-rules')">Discord Szabályzat</button>
+            </div>
+
+            <div id="server-rules" class="rules-tab-content active">
+                <h3>Szerver Szabályzat</h3>
+                <ol>
+                    <li>**Cheating (Csalás):** Bármilyen külső program, modifikáció vagy script (pl. X-ray, Fly hacks, KillAura) használata, ami jogtalan előnyt biztosít, azonnali és végleges kitiltást eredményez. Nincs tolerancia, nincs mérlegelés.</li>
+                    <li>**Griefing (Rongálás):** A mások által épített struktúrák szándékos tönkretétele, vagy más játékosok tulajdonának ellopása szigorúan tilos. Ez a szabály bármely játékmódra vonatkozik.</li>
+                    <li>**Bugok és Exploits:** A szerver hibáinak vagy bugjainak szándékos kihasználása (pl. duplikálás, a térképen kívülre kerülés) azonnali és végleges kitiltással jár. Ha hibát találsz, azt azonnal jelentened kell a Staffnak.</li>
+                    <li>**Spam és Flood:** A chat túlzott mértékű spamelése, vagy a felesleges, ismétlődő üzenetek küldése tiltott. Ez zavarja a többi játékost és rontja a szerver élményét.</li>
+                    <li>**Automatizált farmok:** A túlzott mértékű, lagot okozó farmok építése tilos. A Staff tagok jogosultak ezeket lebontani előzetes figyelmeztetés nélkül.</li>
+                </ol>
+            </div>
+
+            <div id="discord-rules" class="rules-tab-content">
+                <h3>Discord Szabályzat</h3>
+                <ol>
+                    <li>**Tilos a tiszteletlen viselkedés:** Tilos más játékosokat vagy a Staff tagokat sértegetni, fenyegetni, vagy velük szemben tiszteletlen módon viselkedni. A provokáció nem megengedett.</li>
+                    <li>**Tiltott tartalom:** Szigorúan tilos bármilyen rasszista, szexuális tartalmú, vagy illegális tevékenységet népszerűsítő tartalom megosztása. Ez a szabály nem megalkuvó, azonnali és végleges kitiltást von maga után.</li>
+                    <li>**Reklámozás:** Más szerverek, YouTube csatornák, streamek, vagy bármilyen más tartalom reklámozása tilos a Discord csatornánkon.</li>
+                    <li>**Személyes adatok:** Tilos más játékosok személyes adatait megosztani a beleegyezésük nélkül. A staff tagok soha nem kérik el a jelszavadat vagy a személyes adataidat.</li>
+                    <li>**A Staff szava:** A Staff tagok döntései vitathatatlanok. Nincs jogod megkérdőjelezni a Staff döntését. Ha úgy ítélik meg, hogy a magatartásod káros a közösségre nézve, indoklás nélkül kitilthatnak.</li>
+                </ol>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>ShadowRealms. Minden jog fenntartva.</p>
+    </footer>
+
+    <script src="rules.js"></script>
+</body>
+</html>

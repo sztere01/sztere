@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShadowRealms – Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1 class="logo">Admin Panel</h1>
+        <nav>
+            <ul>
+                <li><a href="main.html">Vissza a főoldalra</a></li>
+                <li><a href="#" id="logout-btn">Kijelentkezés</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="admin-dashboard">
+            <h2>Karbantartói Irányítópult</h2>
+            <div class="admin-sections">
+                <div class="admin-panel">
+                    <h3>Új szavazás posztolása</h3>
+                    <form id="vote-form">
+                        <label for="vote-question-input">Kérdés:</label>
+                        <input type="text" id="vote-question-input" required>
+                        <label for="vote-option1-input">Opció 1:</label>
+                        <input type="text" id="vote-option1-input" required>
+                        <label for="vote-option2-input">Opció 2:</label>
+                        <input type="text" id="vote-option2-input" required>
+                        <button type="submit" class="cta-button">Szavazás közzététele</button>
+                    </form>
+                </div>
+                
+                <div class="admin-panel">
+                    <h3>Aktuális szavazás eredményei</h3>
+                    <div id="current-vote-results">
+                        <p>Nincs aktív szavazás.</p>
+                    </div>
+                    <div class="admin-buttons">
+                        <button id="delete-vote-btn" class="cta-button">Szavazás törlése</button>
+                    </div>
+                </div>
+
+                <div class="admin-panel">
+                    <h3>Új hír posztolása</h3>
+                    <form id="post-form">
+                        <label for="post-title-input">Cím:</label>
+                        <input type="text" id="post-title-input" required>
+                        <label for="post-content-input">Tartalom:</label>
+                        <textarea id="post-content-input" rows="5" required></textarea>
+                        <button type="submit" class="cta-button">Hír közzététele</button>
+                    </form>
+                </div>
+
+                <div class="admin-panel">
+                    <h3>Hírek szerkesztése/törlése</h3>
+                    <div id="editable-posts-container">
+                        <p>Nincs közzétett hír.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>ShadowRealms. Minden jog fenntartva.</p>
+    </footer>
+
+    <script src="admin.js"></script>
+</body>
+</html>

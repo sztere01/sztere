@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShadowRealms</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1 class="logo">ShadowRealms</h1>
+        <nav>
+            <ul>
+                <li><a href="main.html" class="active">Kezdőlap</a></li>
+                <li><a href="rules.html">Szabályok</a></li>
+                <li><a href="discord.html">Discord</a></li>
+                <li><a href="vote.html">Szavazás</a></li>
+                <li><a href="#" id="settings-btn"><i class="fas fa-cog"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>Üdv a ShadowRealms Világában!</h1>
+            <p>Ahol a túlélés és a kreativitás találkozik.</p>
+        </section>
+
+        <section>
+            <div class="content-grid">
+                <div class="grid-item server-info-card">
+                    <h3>Szerver Státusz</h3>
+                    <p>Szerver címe: <span class="server-ip">shadowrealms.sytes.net</span></p>
+                    <p class="status-indicator">
+                        Státusz: <span id="server-status" class="status-dot offline"></span> <span id="status-text">Kapcsolódás...</span>
+                    </p>
+                    <p>Játékosok: <span id="player-count">0</span> / <span id="max-players">0</span></p>
+                </div>
+                <div class="grid-item">
+                    <h3>Legfrissebb Hírek</h3>
+                    <div id="posts-container" class="posts-container">
+                        </div>
+                </div>
+                <div class="grid-item">
+                    <h3>Kövess Minket!</h3>
+                    <a href="https://www.twitch.tv/sztere" target="_blank" class="social-button twitch-btn">
+                        <i class="fab fa-twitch"></i> Twitch
+                    </a>
+                    <a href="https://www.youtube.com/@sztereó_Official/videos" target="_blank" class="social-button youtube-btn">
+                        <i class="fab fa-youtube"></i> YouTube
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>ShadowRealms. Minden jog fenntartva.</p>
+    </footer>
+
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Bejelentkezés</h2>
+            <p>Csak a tulajdonosoknak és a karbantartóknak</p>
+            <form id="admin-login-form">
+                <input type="text" id="admin-username" placeholder="Felhasználónév" required>
+                <input type="password" id="admin-password" placeholder="Jelszó" required>
+                <button type="submit" class="cta-button">Belépés</button>
+            </form>
+            <p id="login-error" class="error-message"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
